@@ -49,7 +49,7 @@ public class JobWorker {
             handler.handle(job.getPayload());
         } catch (Exception e) {
             executionService.failJob(id, e.getMessage());
-            log.error("Job {} failed: {}", id, e.getMessage());
+            log.error("Job {} failed: {}", id, e.getClass().getSimpleName() + ": " +e.getMessage());
             return;
         }
         executionService.completeJob(id);

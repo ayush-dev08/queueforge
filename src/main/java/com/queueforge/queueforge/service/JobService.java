@@ -27,7 +27,7 @@ public class JobService {
     }
     private JobResponse toResponse(Job job) {
         return new JobResponse(job.getId(), job.getType(), job.getStatus(),
-                job.getCreatedAt(), job.getAttempts());
+                job.getCreatedAt(), job.getAttempts(),job.getCompletedAt(),job.getLastError());
     }
 }
 
