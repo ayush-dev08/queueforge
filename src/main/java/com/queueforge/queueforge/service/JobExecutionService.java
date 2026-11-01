@@ -26,6 +26,7 @@ public class JobExecutionService {
             return Optional.empty(); // nothing to claim
         }
         Job job = result.get();
+        // try { Thread.sleep(300); } catch (InterruptedException e) { Thread.currentThread().interrupt(); }//help different jobworker claim the job before it is claimed by any jobworker ,we use to demonstrate race condition
         job.markRunning();
         jobRepository.save(job);
         return result;
